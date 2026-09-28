@@ -275,7 +275,7 @@ const users = [
   {
     username: 'kakanwil',
     email: 'kakanwil.papua@kemenag.go.id',
-    pass: 'pimpinan123',
+    pass: 'kakanwil123',
     name: 'Pdt. Klemens Awi, S.Th., M.Si',
     nip: '196807151994031003',
     job: 'Kepala Kantor Wilayah Kemenag Prov. Papua',
