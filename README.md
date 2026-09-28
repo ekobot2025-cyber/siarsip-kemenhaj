@@ -75,43 +75,50 @@ Buka browser ke alamat: **http://localhost:3050**
 
 ## 📦 Panduan Publikasi ke GitHub & Vercel
 
-### A. Publish ke GitHub
+### A. Repositori GitHub Resmi
+Repositori proyek ini telah dipublikasikan dan aktif di:
+👉 **[https://github.com/ekobot2025-cyber/siarsip-kemenhaj](https://github.com/ekobot2025-cyber/siarsip-kemenhaj)**
 
-1. Inisialisasi repository git lokal:
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: initial commit SI-ARSIP Kemenhaj Papua"
-   ```
-2. Buat repository baru di **[GitHub](https://github.com/new)** (misalnya: `siarsip-kemenhaj`).
-3. Hubungkan dan push kode ke GitHub:
-   ```bash
-   git remote add origin https://github.com/USERNAME-ANDA/siarsip-kemenhaj.git
-   git branch -M main
-   git push -u origin main
-   ```
+Untuk sinkronisasi atau pembaruan kode selanjutnya:
+```bash
+git add .
+git commit -m "Update fitur atau perbaikan"
+git push origin main
+```
 
 ---
 
-### B. Pertimbangan Deployment ke Vercel
+### B. Panduan Deployment 1-Klik ke Vercel
 
-> [!IMPORTANT]
-> **Karakteristik Arsitektur Vercel (Serverless):**
-> Vercel adalah platform *serverless* di mana fungsi backend berjalan tanpa disk penyimpanan fisik yang persisten (*stateless & read-only filesystem*).
+Karena aplikasi ini telah dikonfigurasi untuk **Node.js 22.x** dan mendukung Cloud Database **Turso (LibSQL Serverless SQLite)**, Anda dapat mendeploy ke Vercel dengan langkah mudah:
 
-Jika Anda ingin mendeploy ke **Vercel**:
-1. **Untuk Mode Demo / Portfolio / Showcase**:
-   * Dapat langsung dideploy dengan menyertakan file database `data/siarsip.db` yang sudah di-seed. Pengunjung dapat login, membaca dokumen, melihat dashboard, dan mengunduh berkas.
-   * Catatan: Data baru yang diinput via formulir tidak akan tersimpan permanen saat serverless function Vercel di-restart (*cold start*).
-   * Pada pengaturan Vercel (**Project Settings &rarr; General &rarr; Node.js Version**), pastikan memilih **Node.js 22.x**.
+1. **Buka Vercel Dashboard**:
+   - Masuk ke akun Vercel Anda di [https://vercel.com/new](https://vercel.com/new).
+2. **Import Repository**:
+   - Pilih akun GitHub `ekobot2025-cyber`.
+   - Pilih repository **`siarsip-kemenhaj`** lalu klik **Import**.
+3. **Konfigurasi Environment Variables (Opsional untuk Turso Cloud DB)**:
+   - Di bagian **Environment Variables**, tambahkan:
+     * `TURSO_DATABASE_URL` = `libsql://siarsip-db-ekobot2025-cyber.aws-ap-northeast-1.turso.io`
+     * `TURSO_AUTH_TOKEN` = `eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9...` *(lihat di `.env.example`)*
+4. **Deploy**:
+   - Klik tombol **Deploy**.
+   - Tunggu proses build selesai (~1-2 menit). Aplikasi Anda akan langsung aktif dengan URL resmi Vercel (contoh: `https://siarsip-kemenhaj.vercel.app`)!
 
-2. **Untuk Mode Produksi Penuh (Full Persistence) di Vercel**:
-   * **Database**: Hubungkan ke Cloud Database seperti **Turso (LibSQL Serverless SQLite)** atau **Supabase / Neon (Serverless PostgreSQL)**.
-   * **Penyimpanan Berkas Scan PDF**: Gunakan **Vercel Blob Storage** atau **Supabase Storage / AWS S3** untuk menyimpan file scan PDF.
+---
 
-3. **Alternatif Terbaik untuk Instansi Pemerintah (VPS Mandiri / Docker / Pusat Data Nasional)**:
-   * Karena aplikasi ini mengelola persuratan kedinasan dan arsip berklasifikasi rahasia, opsi deployment yang paling direkomendasikan adalah **VPS Kanwil / Cloud Server Internal / Docker**:
-   * Seluruh kode dan penyimpanan lokal (`storage/documents/` serta SQLite) berjalan 100% persisten, aman, tanpa biaya langganan cloud database pihak ketiga, dan kedaulatan data arsip instansi tetap terjaga.
+### C. Migrasi & Sinkronisasi Database Turso Cloud
+
+Database Turso Cloud telah diinisialisasi dan diisi seluruh data awal (14 tabel, 5 unit kerja, 10 akun pengguna, 33 kategori arsip, 62 berkas dokumen, dan 5 surat masuk).
+
+Untuk menjalankan migrasi ulang atau pengujian koneksi ke Turso:
+```bash
+# Uji koneksi ke Turso Cloud
+npm run test:turso
+
+# Migrasi ulang data lokal ke Turso Cloud
+npm run migrate:turso
+```
 
 ---
 

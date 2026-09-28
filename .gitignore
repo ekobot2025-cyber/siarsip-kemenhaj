@@ -31,3 +31,7 @@ Thumbs.db
 # TypeScript build info
 *.tsbuildinfo
 next-env.d.ts
+
+# SQLite Temporary files
+*.db-wal
+*.db-shm
