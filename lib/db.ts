@@ -2,16 +2,18 @@ import { DatabaseSync } from 'node:sqlite';
 import path from 'path';
 import fs from 'fs';
 
-const DB_DIR = path.join(process.cwd(), 'data');
+const IS_VERCEL = !!process.env.VERCEL;
+const BASE_DATA_DIR = IS_VERCEL ? '/tmp' : process.cwd();
+const DB_DIR = path.join(BASE_DATA_DIR, 'data');
 const DB_PATH = path.join(DB_DIR, 'siarsip.db');
-const STORAGE_DIR = path.join(process.cwd(), 'storage', 'documents');
+const ORIGINAL_DB_PATH = path.join(process.cwd(), 'data', 'siarsip.db');
 
-// Ensure directories exist
-if (!fs.existsSync(DB_DIR)) {
-  fs.mkdirSync(DB_DIR, { recursive: true });
-}
-if (!fs.existsSync(STORAGE_DIR)) {
-  fs.mkdirSync(STORAGE_DIR, { recursive: true });
+export function getStorageDir(): string {
+  const dir = IS_VERCEL ? path.join('/tmp', 'storage', 'documents') : path.join(process.cwd(), 'storage', 'documents');
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+  return dir;
 }
 
 // Global cache for development hot reloading
@@ -21,9 +23,23 @@ declare global {
 
 export function getDb(): DatabaseSync {
   if (!globalThis.__siarsip_db) {
+    if (!fs.existsSync(DB_DIR)) {
+      fs.mkdirSync(DB_DIR, { recursive: true });
+    }
+
+    if (IS_VERCEL && !fs.existsSync(DB_PATH) && fs.existsSync(ORIGINAL_DB_PATH)) {
+      try {
+        fs.copyFileSync(ORIGINAL_DB_PATH, DB_PATH);
+      } catch (e) {
+        console.warn('Failed to copy siarsip.db to /tmp:', e);
+      }
+    }
+
     const db = new DatabaseSync(DB_PATH);
-    db.exec('PRAGMA journal_mode = WAL;');
-    db.exec('PRAGMA foreign_keys = ON;');
+    try {
+      db.exec('PRAGMA journal_mode = WAL;');
+      db.exec('PRAGMA foreign_keys = ON;');
+    } catch {}
     initSchema(db);
     globalThis.__siarsip_db = db;
   }

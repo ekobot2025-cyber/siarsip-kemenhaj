@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "SI-ARSIP - Sistem Informasi Arsip dan Persuratan Digital Kanwil Kemenag Papua",
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "next dev -p 3050",
     "build": "next build",
@@ -10,6 +13,7 @@
     "seed": "node scripts/seed.mjs"
   },
   "dependencies": {
+    "@libsql/client": "^0.18.0",
     "autoprefixer": "^10.6.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.48.0",
