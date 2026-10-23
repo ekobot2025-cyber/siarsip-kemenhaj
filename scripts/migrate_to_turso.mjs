@@ -126,22 +126,29 @@ async function migrate() {
       created_at TEXT NOT NULL DEFAULT (datetime('now', 'localtime')),
       updated_at TEXT NOT NULL DEFAULT (datetime('now', 'localtime'))
     );`,
+    `DROP TABLE IF EXISTS outgoing_letters;`,
     `CREATE TABLE IF NOT EXISTS outgoing_letters (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       agenda_number TEXT UNIQUE NOT NULL,
       letter_number TEXT NOT NULL,
       letter_date TEXT NOT NULL,
-      destination_institution TEXT NOT NULL,
+      recipient TEXT NOT NULL,
+      recipient_institution TEXT,
       subject TEXT NOT NULL,
-      signer_name TEXT NOT NULL,
-      signer_nip TEXT,
-      origin_unit_id INTEGER NOT NULL REFERENCES units(id),
+      sender_unit_id INTEGER NOT NULL REFERENCES units(id),
+      signer_name TEXT,
+      letter_nature TEXT NOT NULL DEFAULT 'Biasa',
+      summary TEXT,
+      notes TEXT,
       file_path TEXT,
       file_name TEXT,
-      status TEXT NOT NULL DEFAULT 'TERKIRIM',
-      archive_id INTEGER REFERENCES archives(id) ON DELETE SET NULL,
-      created_by INTEGER REFERENCES users(id),
-      created_at TEXT NOT NULL DEFAULT (datetime('now', 'localtime'))
+      file_size INTEGER,
+      file_type TEXT,
+      status TEXT NOT NULL DEFAULT 'DIPROSES',
+      archive_id INTEGER REFERENCES archives(id),
+      created_by INTEGER NOT NULL REFERENCES users(id),
+      created_at TEXT NOT NULL DEFAULT (datetime('now', 'localtime')),
+      updated_at TEXT NOT NULL DEFAULT (datetime('now', 'localtime'))
     );`,
     `CREATE TABLE IF NOT EXISTS favorites (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -209,6 +216,13 @@ async function migrate() {
     'notifications',
     'settings'
   ];
+
+  console.log('\nClearing existing transactional tables on Turso...');
+  for (const table of ['favorites', 'recent_views', 'archive_attachments', 'incoming_letters', 'outgoing_letters', 'archives', 'audit_logs', 'notifications']) {
+    try {
+      await turso.execute(`DELETE FROM ${table}`);
+    } catch (e) {}
+  }
 
   console.log('\nMigrating table data from local SQLite to Turso...');
   for (const table of tables) {

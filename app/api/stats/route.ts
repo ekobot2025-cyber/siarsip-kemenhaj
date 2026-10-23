@@ -28,35 +28,29 @@ export async function GET() {
     // Documents This Month
     const documentsThisMonth = (db.prepare('SELECT COUNT(*) as count FROM archives WHERE document_date LIKE ?').get(`${currentMonthPrefix}%`) as any).count;
 
-    // Surat Masuk & Keluar count from categories
-    const incomingLetters = (db.prepare(`
-      SELECT COUNT(*) as count FROM archives a 
-      JOIN archive_categories c ON a.category_id = c.id 
-      WHERE c.name LIKE '%Surat Masuk%'
-    `).get() as any).count || 12;
+    // Surat Masuk & Keluar count from database
+    const incomingLetters = (db.prepare('SELECT COUNT(*) as count FROM incoming_letters').get() as any).count ?? 0;
 
     const outgoingLetters = (db.prepare(`
       SELECT COUNT(*) as count FROM archives a 
       JOIN archive_categories c ON a.category_id = c.id 
       WHERE c.name LIKE '%Surat Keluar%'
-    `).get() as any).count || 9;
+    `).get() as any).count ?? 0;
 
-    const todayActivitiesCount = (db.prepare('SELECT COUNT(*) as count FROM audit_logs WHERE created_at LIKE ?').get(`${todayPrefix}%`) as any).count || 8;
+    const todayActivitiesCount = (db.prepare('SELECT COUNT(*) as count FROM audit_logs WHERE created_at LIKE ?').get(`${todayPrefix}%`) as any).count ?? 0;
 
     // Monthly Activity for chart (Jan-Dec)
     const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
     const monthlyStats = monthNames.map((m, idx) => {
       const monthNum = String(idx + 1).padStart(2, '0');
       const pattern = `${currentYear}-${monthNum}%`;
-      const archCount = (db.prepare(`SELECT COUNT(*) as count FROM archives WHERE document_date LIKE ?`).get(pattern) as any).count;
-      
-      // Dynamic realistic simulation for letters
-      const smCount = idx <= 1 ? (archCount > 0 ? Math.round(archCount * 0.4) + 2 : 3) : 0;
-      const skCount = idx <= 1 ? (archCount > 0 ? Math.round(archCount * 0.3) + 1 : 2) : 0;
+      const archCount = (db.prepare(`SELECT COUNT(*) as count FROM archives WHERE document_date LIKE ?`).get(pattern) as any).count || 0;
+      const smCount = (db.prepare(`SELECT COUNT(*) as count FROM incoming_letters WHERE letter_date LIKE ?`).get(pattern) as any).count || 0;
+      const skCount = (db.prepare(`SELECT COUNT(*) as count FROM archives a JOIN archive_categories c ON a.category_id = c.id WHERE c.name LIKE '%Surat Keluar%' AND a.document_date LIKE ?`).get(pattern) as any).count || 0;
 
       return {
         month: m,
-        archives: archCount > 0 ? archCount : (idx < 2 ? 14 + idx * 5 : 0),
+        archives: archCount,
         suratMasuk: smCount,
         suratKeluar: skCount,
       };

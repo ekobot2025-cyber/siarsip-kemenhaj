@@ -15,8 +15,15 @@ export async function GET() {
     const currentYear = new Date().getFullYear();
     const currentMonthPrefix = new Date().toISOString().slice(0, 7);
 
-    const totalArchives = (db.prepare('SELECT COUNT(*) as count FROM archives').get() as any).count;
-    const archivesThisYear = (db.prepare('SELECT COUNT(*) as count FROM archives WHERE year = ?').get(currentYear) as any).count || 38;
+    const totalArchives = (db.prepare('SELECT COUNT(*) as count FROM archives').get() as any).count ?? 0;
+    const archivesThisYear = (db.prepare('SELECT COUNT(*) as count FROM archives WHERE year = ?').get(currentYear) as any).count ?? 0;
+    const suratMasukBulanIni = (db.prepare('SELECT COUNT(*) as count FROM incoming_letters WHERE letter_date LIKE ?').get(`${currentMonthPrefix}%`) as any).count ?? 0;
+    const suratKeluarBulanIni = (db.prepare(`
+      SELECT COUNT(*) as count FROM archives a 
+      JOIN archive_categories c ON a.category_id = c.id 
+      WHERE c.name LIKE '%Surat Keluar%' AND a.document_date LIKE ?
+    `).get(`${currentMonthPrefix}%`) as any).count ?? 0;
+    const dokumenBaruBulanIni = (db.prepare('SELECT COUNT(*) as count FROM archives WHERE document_date LIKE ?').get(`${currentMonthPrefix}%`) as any).count ?? 0;
 
     const unitActivity = db.prepare(`
       SELECT u.id, u.code, u.name, u.leader_name,
@@ -40,9 +47,9 @@ export async function GET() {
     return NextResponse.json({
       totalArchives,
       archivesThisYear,
-      suratMasukBulanIni: 14,
-      suratKeluarBulanIni: 11,
-      dokumenBaruBulanIni: 24,
+      suratMasukBulanIni,
+      suratKeluarBulanIni,
+      dokumenBaruBulanIni,
       unitActivity,
       recentDocs,
     });
