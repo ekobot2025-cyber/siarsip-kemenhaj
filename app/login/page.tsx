@@ -2,24 +2,15 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Shield, Lock, User, ArrowRight, CheckCircle2, AlertCircle, FileText, Sparkles, Building2 } from 'lucide-react';
+import { Shield, Lock, User, ArrowRight, AlertCircle } from 'lucide-react';
 
 export default function LoginPage() {
   const router = useRouter();
-  const [username, setUsername] = useState('superadmin');
-  const [password, setPassword] = useState('admin123');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-
-  const demoAccounts = [
-    { label: 'Super Admin', username: 'superadmin', pass: 'admin123', role: 'SUPER_ADMIN', desc: 'Akses Penuh Seluruh Sistem' },
-    { label: 'Admin E-Arsip', username: 'admin.arsip', pass: 'arsip123', role: 'ADMIN_ARSIP', desc: 'Pengelola Arsip Pusat & Agenda' },
-    { label: 'Admin Keuangan', username: 'admin.keuangan', pass: 'keu123', role: 'ADMIN_UNIT', desc: 'Arsip SPJ, DIPA, SP2D' },
-    { label: 'Admin Bid. Haji', username: 'admin.haji', pass: 'haji123', role: 'ADMIN_UNIT', desc: 'Arsip Bio Visa & Paspor' },
-    { label: 'Kepala Kanwil', username: 'kakanwil', pass: 'kakanwil123', role: 'PIMPINAN', desc: 'Dashboard & Lembar Disposisi' },
-    { label: 'Pegawai Keu', username: 'pegawai.keu', pass: 'pegawai123', role: 'PEGAWAI', desc: 'Pencarian & Pratinjau Dokumen' },
-  ];
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,12 +36,6 @@ export default function LoginPage() {
       setError('Terjadi kendala jaringan saat menghubungi server.');
       setLoading(false);
     }
-  };
-
-  const setDemoAccount = (u: string, p: string) => {
-    setUsername(u);
-    setPassword(p);
-    setError('');
   };
 
   return (
@@ -214,30 +199,14 @@ export default function LoginPage() {
             </button>
           </form>
 
-          {/* Quick Demo Switcher */}
-          <div className="mt-8 pt-6 border-t border-[#e8dfc8]">
-            <div className="flex items-center justify-between mb-2.5">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#8a6d2b]">
-                Pilihan Akun Demo (Klik untuk Isi Otomatis)
-              </span>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              {demoAccounts.map((d) => (
-                <button
-                  key={d.username}
-                  type="button"
-                  onClick={() => setDemoAccount(d.username, d.pass)}
-                  className={`p-2 rounded-xl text-left border transition text-[11px] cursor-pointer ${
-                    username === d.username
-                      ? 'bg-[#fbf8ee] border-[#c9a961] text-[#8a6d2b] font-bold shadow-2xs'
-                      : 'bg-[#FAF9F5] border-[#e8dfc8] text-stone-700 hover:bg-[#fbf8ee]'
-                  }`}
-                >
-                  <span className="block font-bold text-[#1A1410] truncate">{d.label}</span>
-                  <span className="block text-[10px] text-stone-500 font-mono truncate">{d.username}</span>
-                </button>
-              ))}
-            </div>
+          {/* Catatan Bantuan & Keamanan */}
+          <div className="mt-8 pt-5 border-t border-[#e8dfc8] text-center">
+            <p className="text-[11px] text-[#786c5e]">
+              Aplikasi Kearsipan &amp; Persuratan Digital &bull; Kanwil Kemenhaj Papua
+            </p>
+            <p className="text-[10px] text-stone-400 mt-1">
+              Hubungi Administrator jika Anda mengalami kendala akses atau lupa kata sandi.
+            </p>
           </div>
 
         </div>
