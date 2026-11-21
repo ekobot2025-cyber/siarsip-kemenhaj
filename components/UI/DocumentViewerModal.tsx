@@ -97,7 +97,7 @@ export function DocumentViewerModal({ isOpen, onClose, archive }: DocumentViewer
                 KANTOR WILAYAH PROVINSI PAPUA
               </h1>
               <p className="text-[10px] text-slate-500 mt-0.5">
-                Jl. Raya Abepura - Kotaraja, Jayapura, Papua • Telp/Fax: (0967) 581234 • Email: kanwilpapua@haji.go.id
+                Jl. Raya Abepura - Kotaraja, Jayapura, Papua • Telp/Fax: (0967) 581234
               </p>
               <div className="h-0.5 bg-slate-900 mt-3"></div>
               <div className="h-0.5 bg-slate-900 mt-0.5"></div>

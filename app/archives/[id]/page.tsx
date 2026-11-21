@@ -454,9 +454,6 @@ export default function ArchiveDetailPage() {
                     <p className="text-xs text-slate-600 mt-0.5">
                       Jalan Raya Abepura - Kotaraja, Jayapura, Papua | Telepon: (0967) 581234
                     </p>
-                    <p className="text-[11px] text-slate-500 font-medium">
-                      Email: kanwilpapua@haji.go.id | Laman: papua.haji.go.id
-                    </p>
                     <div className="h-0.5 bg-slate-900 mt-3"></div>
                     <div className="h-0.5 bg-slate-900 mt-0.5"></div>
                   </div>

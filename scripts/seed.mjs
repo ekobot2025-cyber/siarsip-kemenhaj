@@ -373,7 +373,6 @@ function createSampleDocFile(filename, title, docNo, unitName, dateStr) {
 KEMENTERIAN AGAMA REPUBLIK INDONESIA
 KANTOR WILAYAH KEMENTERIAN AGAMA PROVINSI PAPUA
 Jl. Raya Abepura - Kotaraja, Jayapura, Papua
-Email: kanwilpapua@kemenag.go.id | Portal: papua.kemenag.go.id
 ================================================================================
 
 DOKUMEN RESMI TERSIMPAN DALAM SISTEM INFORMASI ARSIP (SI-ARSIP)

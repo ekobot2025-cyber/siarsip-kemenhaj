@@ -58,7 +58,7 @@ export function DisposisiModal({ isOpen, onClose, letter, onArchiveToEArsip }: D
                   KANTOR WILAYAH PROVINSI PAPUA
                 </h2>
                 <p className="text-[10px] text-slate-600 mt-0.5">
-                  Jl. Raya Abepura &ndash; Kotaraja, Jayapura, Papua &bull; Email: kanwilpapua@haji.go.id
+                  Jl. Raya Abepura &ndash; Kotaraja, Jayapura, Papua
                 </p>
                 <div className="h-0.5 bg-slate-900 mt-2"></div>
                 <div className="h-0.5 bg-slate-900 mt-0.5"></div>
