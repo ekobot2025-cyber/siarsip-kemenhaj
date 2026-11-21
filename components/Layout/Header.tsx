@@ -64,32 +64,7 @@ export function Header({ user, onToggleSidebar, onOpenMobileMenu }: HeaderProps)
     }
   };
 
-  const dummyNotifications = [
-    {
-      id: 1,
-      title: 'Surat Masuk Baru Diterima',
-      desc: 'Undangan Rakor Pembinaan Haji Papua dari Kementerian Haji dan Umrah RI.',
-      time: '15 menit lalu',
-      unread: true,
-      link: '/persuratan/masuk',
-    },
-    {
-      id: 2,
-      title: 'Registrasi Agenda Sukses',
-      desc: 'Nomor agenda SM/2026/00005 telah berhasil dialihkan ke E-Arsip.',
-      time: '1 jam lalu',
-      unread: true,
-      link: '/persuratan/agenda',
-    },
-    {
-      id: 3,
-      title: 'Dokumen Penting Tersimpan',
-      desc: 'Daftar Nominatif Jemaah Haji Reguler 1447 H telah diverifikasi.',
-      time: '3 jam lalu',
-      unread: false,
-      link: '/archives?unit_code=HAJI',
-    },
-  ];
+  const notifications: any[] = [];
 
   return (
     <header className="sticky top-0 z-30 flex items-center justify-between h-16 px-4 md:px-6 bg-white text-stone-800 border-b border-[#e8dfc8] shadow-2xs transition-all">
@@ -160,7 +135,9 @@ export function Header({ user, onToggleSidebar, onOpenMobileMenu }: HeaderProps)
             title="Pemberitahuan"
           >
             <Bell className="w-4 h-4 text-stone-600" />
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-[#b8941e] rounded-full animate-pulse"></span>
+            {notifications.length > 0 && (
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-[#b8941e] rounded-full animate-pulse"></span>
+            )}
           </button>
 
           {/* Notifications Dropdown */}
@@ -168,30 +145,38 @@ export function Header({ user, onToggleSidebar, onOpenMobileMenu }: HeaderProps)
             <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-white rounded-2xl shadow-xl border border-[#e8dfc8] py-2 z-50 animate-fadeIn">
               <div className="flex items-center justify-between px-4 py-2 border-b border-[#e8dfc8]">
                 <span className="font-bold text-xs text-[#1A1410]">Notifikasi Persuratan &amp; Arsip</span>
-                <span className="text-[10px] bg-[#fbf8ee] text-[#8a6d2b] border border-[#e8dfc8] px-2 py-0.5 rounded-full font-bold">
-                  2 Baru
-                </span>
+                {notifications.length > 0 && (
+                  <span className="text-[10px] bg-[#fbf8ee] text-[#8a6d2b] border border-[#e8dfc8] px-2 py-0.5 rounded-full font-bold">
+                    {notifications.length} Baru
+                  </span>
+                )}
               </div>
               <div className="max-h-72 overflow-y-auto divide-y divide-[#FAF9F5]">
-                {dummyNotifications.map((n) => (
-                  <Link
-                    key={n.id}
-                    href={n.link}
-                    onClick={() => setShowNotifications(false)}
-                    className={`block px-4 py-3 hover:bg-[#fbf8ee] transition-colors ${
-                      n.unread ? 'bg-[#fbf8ee]/60' : ''
-                    }`}
-                  >
-                    <div className="flex items-start space-x-2">
-                      {n.unread && <span className="w-2 h-2 rounded-full bg-[#b8941e] mt-1.5 shrink-0"></span>}
-                      <div className="flex-1">
-                        <p className="text-xs font-semibold text-[#1A1410]">{n.title}</p>
-                        <p className="text-[11px] text-stone-600 line-clamp-2 mt-0.5">{n.desc}</p>
-                        <span className="text-[10px] text-[#8a6d2b] mt-1 block font-medium">{n.time}</span>
+                {notifications.length === 0 ? (
+                  <div className="py-6 text-center text-xs text-stone-400">
+                    Belum ada notifikasi baru
+                  </div>
+                ) : (
+                  notifications.map((n) => (
+                    <Link
+                      key={n.id}
+                      href={n.link}
+                      onClick={() => setShowNotifications(false)}
+                      className={`block px-4 py-3 hover:bg-[#fbf8ee] transition-colors ${
+                        n.unread ? 'bg-[#fbf8ee]/60' : ''
+                      }`}
+                    >
+                      <div className="flex items-start space-x-2">
+                        {n.unread && <span className="w-2 h-2 rounded-full bg-[#b8941e] mt-1.5 shrink-0"></span>}
+                        <div className="flex-1">
+                          <p className="text-xs font-semibold text-[#1A1410]">{n.title}</p>
+                          <p className="text-[11px] text-stone-600 line-clamp-2 mt-0.5">{n.desc}</p>
+                          <span className="text-[10px] text-[#8a6d2b] mt-1 block font-medium">{n.time}</span>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                ))}
+                    </Link>
+                  ))
+                )}
               </div>
               <div className="px-4 py-2 text-center border-t border-[#e8dfc8]">
                 <Link

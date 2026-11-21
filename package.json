@@ -11,6 +11,7 @@
     "build": "next build",
     "start": "next start -p 3050",
     "seed": "node scripts/reset_and_seed_real_letters.mjs",
+    "purge": "node scripts/purge_all_dummy_data.mjs",
     "migrate:turso": "node scripts/migrate_to_turso.mjs",
     "test:turso": "node scripts/test_turso.mjs"
   },

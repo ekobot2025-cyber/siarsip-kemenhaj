@@ -110,12 +110,12 @@ export default function DashboardPage() {
             <div className="flex items-center space-x-2 bg-white/5 px-3 py-1.5 rounded-xl border border-[#c9a961]/25 backdrop-blur-xs">
               <span className="w-2 h-2 rounded-full bg-[#c9a961]"></span>
               <span className="text-[#FAF9F5]/90">Dokumen Baru Bulan Ini:</span>
-              <span className="font-bold text-[#c9a961] font-mono">{stats.newDocsCount || 7}</span>
+              <span className="font-bold text-[#c9a961] font-mono">{stats.newDocsCount ?? 0}</span>
             </div>
             <div className="flex items-center space-x-2 bg-white/5 px-3 py-1.5 rounded-xl border border-[#c9a961]/25 backdrop-blur-xs">
               <span className="w-2 h-2 rounded-full bg-amber-400"></span>
               <span className="text-[#FAF9F5]/90">Surat Belum Diproses:</span>
-              <span className="font-bold text-amber-300 font-mono">{stats.unprocessedLettersCount || 3}</span>
+              <span className="font-bold text-amber-300 font-mono">{stats.unprocessedLettersCount ?? 0}</span>
             </div>
             <div className="flex items-center space-x-2 bg-white/5 px-3 py-1.5 rounded-xl border border-[#c9a961]/25 backdrop-blur-xs">
               <span className="w-2 h-2 rounded-full bg-[#059669]"></span>
