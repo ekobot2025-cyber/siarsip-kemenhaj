@@ -100,7 +100,7 @@ export function Sidebar({ user, isOpen, onCloseMobile }: SidebarProps) {
               </span>
             </div>
             <p className="text-[10px] text-stone-500 font-medium truncate max-w-[150px]">
-              Kemenhaj / Kanwil Kemenag
+              Kementerian Haji &amp; Umrah
             </p>
           </div>
         </Link>

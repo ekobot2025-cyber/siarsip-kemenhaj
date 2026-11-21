@@ -61,7 +61,7 @@ export default function SuratKeluarPage() {
         {/* Table */}
         <div className="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden">
           <div className="p-4 border-b border-slate-100 flex items-center justify-between">
-            <h2 className="text-sm font-bold text-slate-900">Agenda Surat Keluar Kanwil Kemenag Papua</h2>
+            <h2 className="text-sm font-bold text-slate-900">Agenda Surat Keluar Kementerian Haji dan Umrah Papua</h2>
             <span className="text-xs text-slate-500 font-mono">Format Agenda: SK/2026/XXXXX</span>
           </div>
 

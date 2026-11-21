@@ -216,7 +216,7 @@ export async function POST(request: Request) {
       // If no file uploaded, create a certified placeholder file
       const safeDocName = `${archiveCode.replace(/\//g, '_')}.pdf`;
       const fullPath = path.join(STORAGE_DIR, safeDocName);
-      const placeholderContent = `ARSIP DIGITAL KEMENTERIAN AGAMA PROVINSI PAPUA\nKODE ARSIP: ${archiveCode}\nJUDUL: ${documentTitle}\nNOMOR: ${documentNumber}\nTANGGAL: ${documentDate}\nUNIT: ${unit.name}\n\nDokumen resmi tersimpan secara digital dalam sistem SI-ARSIP.`;
+      const placeholderContent = `ARSIP DIGITAL KEMENTERIAN HAJI DAN UMRAH KANTOR WILAYAH PROVINSI PAPUA\nKODE ARSIP: ${archiveCode}\nJUDUL: ${documentTitle}\nNOMOR: ${documentNumber}\nTANGGAL: ${documentDate}\nUNIT: ${unit.name}\n\nDokumen resmi tersimpan secara digital dalam sistem SI-ARSIP.`;
       fs.writeFileSync(fullPath, placeholderContent, 'utf-8');
 
       fileName = `${archiveCode.replace(/\//g, '_')}.pdf`;

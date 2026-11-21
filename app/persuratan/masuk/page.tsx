@@ -160,7 +160,7 @@ export default function SuratMasukPage() {
                 Administrasi Surat Masuk &amp; Penomoran Agenda Otomatis
               </h1>
               <p className="text-xs text-[#FAF9F5]/80 leading-relaxed">
-                Setiap surat fisik yang diterima Kanwil Kemenag / Kemenhaj Papua dapat langsung dicatat manual, 
+                Setiap surat fisik yang diterima Kementerian Haji dan Umrah Kantor Wilayah Provinsi Papua dapat langsung dicatat manual, 
                 diunggah berkas scan PDF, dan diberi <strong>Nomor Agenda Otomatis</strong> (format: <code className="bg-black/40 px-1.5 py-0.5 rounded text-[#c9a961] font-mono border border-[#c9a961]/30">SM/2026/00001</code>). 
                 Tersedia <strong>Lembar Disposisi Kakanwil</strong> siap cetak dan fitur <strong>1-Klik Masuk E-Arsip</strong>.
               </p>

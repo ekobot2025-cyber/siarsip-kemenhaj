@@ -143,7 +143,7 @@ function ArchivesContent() {
               </span>
             </div>
             <p className="text-xs text-slate-500 mt-1">
-              Pusat penyimpanan arsip digital terklasifikasi Kantor Wilayah Kementerian Agama Provinsi Papua
+              Pusat penyimpanan arsip digital terklasifikasi Kementerian Haji dan Umrah Kantor Wilayah Provinsi Papua
             </p>
           </div>
 

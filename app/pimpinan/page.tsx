@@ -60,7 +60,7 @@ export default function PimpinanDashboardPage() {
               Monitoring Kearsipan & Tata Persuratan
             </h1>
             <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl">
-              Ikhtisar operasional, kepatuhan tata naskah dinas, dan pengarsipan digital seluruh satuan kerja Kantor Wilayah Kementerian Agama Provinsi Papua.
+              Ikhtisar operasional, kepatuhan tata naskah dinas, dan pengarsipan digital seluruh satuan kerja Kementerian Haji dan Umrah Kantor Wilayah Provinsi Papua.
             </p>
           </div>
         </div>

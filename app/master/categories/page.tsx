@@ -111,7 +111,7 @@ export default function MasterCategoriesPage() {
           <div>
             <h1 className="text-xl font-bold text-slate-900 tracking-tight">Master Kategori Arsip</h1>
             <p className="text-xs text-slate-500 mt-0.5">
-              Klasifikasi jenis dokumen arsip dinamis dan statis di lingkungan Kanwil Kemenag Papua
+              Klasifikasi jenis dokumen arsip dinamis dan statis di lingkungan Kementerian Haji dan Umrah Kantor Wilayah Papua
             </p>
           </div>
           <button

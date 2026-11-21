@@ -131,7 +131,7 @@ export function LetterViewerModal({
 
         {/* Footer */}
         <div className="px-6 py-2.5 bg-white border-t border-[#e8dfc8] flex items-center justify-between text-[11px] text-stone-500 shrink-0">
-          <span>SI-ARSIP &bull; Kantor Wilayah Kementerian Agama / Kemenhaj Provinsi Papua</span>
+          <span>SI-ARSIP &bull; Kementerian Haji dan Umrah Kantor Wilayah Provinsi Papua</span>
           <div className="flex items-center space-x-3">
             <span className="font-mono text-stone-600">{letter.file_name || 'berkas_scan.pdf'}</span>
             <a

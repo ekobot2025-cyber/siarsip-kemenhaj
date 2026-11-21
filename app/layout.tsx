@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'SI-ARSIP | Kanwil Kemenag Provinsi Papua',
-  description: 'Sistem Informasi Arsip dan Persuratan Digital - Kantor Wilayah Kementerian Agama Provinsi Papua',
+  title: 'SI-ARSIP | Kementerian Haji dan Umrah Kantor Wilayah Papua',
+  description: 'Sistem Informasi Arsip dan Persuratan Digital - Kementerian Haji dan Umrah Kantor Wilayah Provinsi Papua',
 };
 
 export default function RootLayout({

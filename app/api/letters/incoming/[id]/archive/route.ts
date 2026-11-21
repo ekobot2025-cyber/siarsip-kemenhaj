@@ -74,7 +74,7 @@ export async function POST(
       letter.subject,
       letter.sender_institution,
       letter.unit_name,
-      letter.summary || letter.notes || 'Arsip surat masuk hasil digitalisasi Kanwil Kemenag Papua.',
+      letter.summary || letter.notes || 'Arsip surat masuk hasil digitalisasi Kementerian Haji dan Umrah Kantor Wilayah Papua.',
       `surat masuk, ${letter.sender_institution.toLowerCase()}, ${letter.agenda_number.toLowerCase()}`,
       securityLevel,
       letter.file_path,

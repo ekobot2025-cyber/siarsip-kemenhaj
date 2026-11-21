@@ -121,7 +121,7 @@ export async function POST(request: Request) {
       // Create certified electronic summary PDF placeholder
       const cleanSaveName = `SURAT_MASUK_${agendaNumber.replace(/\//g, '_')}.pdf`;
       const fullDiskPath = path.join(STORAGE_DIR, cleanSaveName);
-      const content = `SURAT MASUK RESMI - KANWIL KEMENAG PAPUA\nNOMOR AGENDA : ${agendaNumber}\nNOMOR SURAT  : ${letterNumber}\nTANGGAL SURAT: ${letterDate}\nDITERIMA TGL : ${receivedDate}\nPENGIRIM     : ${senderInstitution}\nPERIHAL      : ${subject}\nSIFAT SURAT  : ${letterNature}\n\nDokumen fisik telah diregistrasi ke dalam Buku Agenda Persuratan Digital.`;
+      const content = `SURAT MASUK RESMI - KEMENTERIAN HAJI DAN UMRAH KANTOR WILAYAH PAPUA\nNOMOR AGENDA : ${agendaNumber}\nNOMOR SURAT  : ${letterNumber}\nTANGGAL SURAT: ${letterDate}\nDITERIMA TGL : ${receivedDate}\nPENGIRIM     : ${senderInstitution}\nPERIHAL      : ${subject}\nSIFAT SURAT  : ${letterNature}\n\nDokumen fisik telah diregistrasi ke dalam Buku Agenda Persuratan Digital.`;
       fs.writeFileSync(fullDiskPath, content, 'utf-8');
 
       fileName = cleanSaveName;

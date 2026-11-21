@@ -52,13 +52,13 @@ export function DisposisiModal({ isOpen, onClose, letter, onArchiveToEArsip }: D
               {/* Header Kop */}
               <div className="text-center border-b-2 border-slate-900 pb-3 mb-4">
                 <p className="font-bold text-[10px] uppercase tracking-widest text-slate-700">
-                  KEMENTERIAN AGAMA / KEMENTERIAN HAJI DAN UMRAH RI
+                  KEMENTERIAN HAJI DAN UMRAH REPUBLIK INDONESIA
                 </p>
                 <h2 className="font-black text-sm uppercase tracking-wide text-slate-900 mt-0.5">
                   KANTOR WILAYAH PROVINSI PAPUA
                 </h2>
                 <p className="text-[10px] text-slate-600 mt-0.5">
-                  Jl. Raya Abepura &ndash; Kotaraja, Jayapura, Papua &bull; Email: kanwilpapua@kemenag.go.id
+                  Jl. Raya Abepura &ndash; Kotaraja, Jayapura, Papua &bull; Email: kanwilpapua@haji.go.id
                 </p>
                 <div className="h-0.5 bg-slate-900 mt-2"></div>
                 <div className="h-0.5 bg-slate-900 mt-0.5"></div>
@@ -198,7 +198,7 @@ export function DisposisiModal({ isOpen, onClose, letter, onArchiveToEArsip }: D
             <div className="pt-4 border-t border-slate-200 flex justify-between items-end text-[10px] text-slate-500">
               <div>
                 <p className="font-mono">ID Sistem: {letter.agenda_number}</p>
-                <p>SI-ARSIP Kanwil Kemenag / Kemenhaj Papua</p>
+                <p>SI-ARSIP Kementerian Haji dan Umrah Kantor Wilayah Papua</p>
               </div>
               <div className="text-right">
                 <p className="mb-8">Jayapura, {letter.received_date}</p>

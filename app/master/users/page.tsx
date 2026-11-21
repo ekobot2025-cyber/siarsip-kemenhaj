@@ -330,13 +330,13 @@ export default function MasterUsersPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-slate-700 font-bold mb-1">Email Kemenag *</label>
+                    <label className="block text-slate-700 font-bold mb-1">Email Resmi *</label>
                     <input
                       type="email"
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="nama@kemenag.go.id"
+                      placeholder="nama@haji.go.id"
                       className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-600"
                     />
                   </div>

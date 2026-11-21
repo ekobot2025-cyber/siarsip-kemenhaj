@@ -362,7 +362,7 @@ function NewArchiveContent() {
                     type="text"
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
-                    placeholder="Contoh: KPA Kanwil Kemenag Papua"
+                    placeholder="Contoh: KPA Kementerian Haji dan Umrah Papua"
                     className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-600"
                   />
                 </div>
@@ -424,7 +424,7 @@ function NewArchiveContent() {
                 <div className="space-y-2">
                   {[
                     { val: 'PUBLIK', label: 'Publik', desc: 'Dapat dilihat oleh seluruh aparatur dan publik sesuai kebijakan.' },
-                    { val: 'INTERNAL', label: 'Internal', desc: 'Hanya dapat diakses seluruh pengguna internal Kanwil Kemenag Papua.' },
+                    { val: 'INTERNAL', label: 'Internal', desc: 'Hanya dapat diakses seluruh pengguna internal Kementerian Haji dan Umrah Papua.' },
                     { val: 'TERBATAS', label: 'Terbatas', desc: 'Hanya dapat diakses oleh personil pada unit kerja bersangkutan.' },
                     { val: 'RAHASIA', label: 'Rahasia', desc: 'Hanya dapat diakses oleh Super Admin, Pimpinan, dan pejabat berwenang khusus.' },
                   ].map((lvl) => (

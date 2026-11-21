@@ -1,7 +1,7 @@
 {
   "name": "siarsip-kemenhaj",
   "version": "1.0.0",
-  "description": "SI-ARSIP - Sistem Informasi Arsip dan Persuratan Digital Kanwil Kemenag Papua",
+  "description": "SI-ARSIP - Sistem Informasi Arsip dan Persuratan Digital Kementerian Haji dan Umrah Kantor Wilayah Papua",
   "private": true,
   "engines": {
     "node": "22.x"

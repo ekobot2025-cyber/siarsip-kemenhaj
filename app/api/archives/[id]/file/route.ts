@@ -49,7 +49,7 @@ export async function GET(
         fullDiskPath = fallbackPath;
       } else {
         // Generate on the fly
-        const content = `ARSIP DIGITAL KEMENTERIAN AGAMA PROVINSI PAPUA\nKODE ARSIP: ${archive.archive_code}\nJUDUL: ${archive.document_title}\nNOMOR: ${archive.document_number}\nTANGGAL: ${archive.document_date}\n\nDokumen resmi tersimpan secara digital dalam sistem SI-ARSIP.`;
+        const content = `ARSIP DIGITAL KEMENTERIAN HAJI DAN UMRAH KANTOR WILAYAH PROVINSI PAPUA\nKODE ARSIP: ${archive.archive_code}\nJUDUL: ${archive.document_title}\nNOMOR: ${archive.document_number}\nTANGGAL: ${archive.document_date}\n\nDokumen resmi tersimpan secara digital dalam sistem SI-ARSIP.`;
         fs.writeFileSync(fallbackPath, content, 'utf-8');
         fullDiskPath = fallbackPath;
       }

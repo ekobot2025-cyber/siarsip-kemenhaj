@@ -37,7 +37,7 @@ export async function GET(
       if (fs.existsSync(fallbackPath)) {
         fullDiskPath = fallbackPath;
       } else {
-        const content = `SURAT MASUK RESMI - KANWIL KEMENAG PAPUA\nNOMOR AGENDA : ${letter.agenda_number}\nNOMOR SURAT  : ${letter.letter_number}\nTANGGAL SURAT: ${letter.letter_date}\nDITERIMA TGL : ${letter.received_date}\nPENGIRIM     : ${letter.sender_institution}\nPERIHAL      : ${letter.subject}\nSIFAT SURAT  : ${letter.letter_nature}\n\nDokumen fisik telah diregistrasi ke dalam Buku Agenda Persuratan Digital.`;
+        const content = `SURAT MASUK RESMI - KEMENTERIAN HAJI DAN UMRAH KANTOR WILAYAH PAPUA\nNOMOR AGENDA : ${letter.agenda_number}\nNOMOR SURAT  : ${letter.letter_number}\nTANGGAL SURAT: ${letter.letter_date}\nDITERIMA TGL : ${letter.received_date}\nPENGIRIM     : ${letter.sender_institution}\nPERIHAL      : ${letter.subject}\nSIFAT SURAT  : ${letter.letter_nature}\n\nDokumen fisik telah diregistrasi ke dalam Buku Agenda Persuratan Digital.`;
         fs.writeFileSync(fallbackPath, content, 'utf-8');
         fullDiskPath = fallbackPath;
       }

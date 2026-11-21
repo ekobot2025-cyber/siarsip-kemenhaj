@@ -76,9 +76,10 @@ export default function LoginPage() {
               </p>
             </div>
           </div>
-          <p className="text-sm text-[#FAF9F5]/80 font-medium mt-2">
-            Kantor Wilayah Kementerian Agama / Kemenhaj Provinsi Papua
-          </p>
+          <div className="mt-2 text-sm">
+            <p className="font-bold text-white">Kementerian Haji dan Umrah</p>
+            <p className="font-medium text-[#c9a961]">Kantor Wilayah Provinsi Papua</p>
+          </div>
         </div>
 
         {/* Center Showcase Highlights */}

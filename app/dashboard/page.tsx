@@ -97,7 +97,7 @@ export default function DashboardPage() {
               Selamat Datang di SI-ARSIP <span className="text-[#c9a961]">KEMENHAJ</span>
             </h1>
             <p className="text-xs sm:text-sm font-semibold text-[#c9a961] mt-1">
-              Kantor Wilayah Kementerian Agama / Kemenhaj Provinsi Papua
+              Kementerian Haji dan Umrah Kantor Wilayah Provinsi Papua
             </p>
             <p className="text-xs text-[#FAF9F5]/80 mt-2 leading-relaxed max-w-2xl">
               Pengelolaan arsip digital terklasifikasi, registrasi agenda persuratan masuk dan keluar, 

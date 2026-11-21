@@ -139,7 +139,7 @@ export default function MasterUnitsPage() {
           <div>
             <h1 className="text-xl font-bold text-slate-900 tracking-tight">Master Unit Kerja</h1>
             <p className="text-xs text-slate-500 mt-0.5">
-              Kelola struktur bagian dan bidang pada Kantor Wilayah Kementerian Agama Provinsi Papua
+              Kelola struktur bagian dan bidang pada Kementerian Haji dan Umrah Kantor Wilayah Provinsi Papua
             </p>
           </div>
           <button

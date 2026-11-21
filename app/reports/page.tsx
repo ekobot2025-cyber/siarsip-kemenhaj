@@ -52,7 +52,7 @@ export default function ReportsPage() {
               <h1 className="text-xl font-bold text-slate-900 tracking-tight">Laporan Rekapitulasi Kearsipan</h1>
             </div>
             <p className="text-xs text-slate-500 mt-0.5">
-              Laporan akuntabilitas kearsipan digital Kantor Wilayah Kementerian Agama Provinsi Papua
+              Laporan akuntabilitas kearsipan digital Kementerian Haji dan Umrah Kantor Wilayah Provinsi Papua
             </p>
           </div>
 
@@ -109,7 +109,7 @@ export default function ReportsPage() {
               REKAPITULASI PENGELOLAAN ARSIP ELEKTRONIK
             </h2>
             <h3 className="text-xs font-semibold text-emerald-800 uppercase mt-0.5">
-              KANTOR WILAYAH KEMENTERIAN AGAMA PROVINSI PAPUA
+              KEMENTERIAN HAJI DAN UMRAH KANTOR WILAYAH PROVINSI PAPUA
             </h3>
             <p className="text-xs text-slate-500 mt-1">Periode Tahun Anggaran: {selectedYear}</p>
           </div>

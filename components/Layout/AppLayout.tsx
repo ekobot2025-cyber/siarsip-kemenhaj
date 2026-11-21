@@ -156,7 +156,7 @@ export function AppLayout({ children }: AppLayoutProps) {
         {/* Footer */}
         <footer className="bg-white border-t border-[#e8dfc8] py-3.5 px-6 text-center text-xs text-[#786c5e]">
           <p>
-            &copy; 2026 Kantor Wilayah Kementerian Agama / Kemenhaj Provinsi Papua &bull; Hak Cipta Dilindungi Undang-Undang.
+            &copy; 2026 Kementerian Haji dan Umrah Kantor Wilayah Provinsi Papua &bull; Hak Cipta Dilindungi Undang-Undang.
           </p>
         </footer>
       </div>

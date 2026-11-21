@@ -68,7 +68,7 @@ export function Header({ user, onToggleSidebar, onOpenMobileMenu }: HeaderProps)
     {
       id: 1,
       title: 'Surat Masuk Baru Diterima',
-      desc: 'Undangan Rakor Pembinaan Haji Papua dari Ditjen PHU Kemenag RI.',
+      desc: 'Undangan Rakor Pembinaan Haji Papua dari Kementerian Haji dan Umrah RI.',
       time: '15 menit lalu',
       unread: true,
       link: '/persuratan/masuk',
@@ -113,7 +113,7 @@ export function Header({ user, onToggleSidebar, onOpenMobileMenu }: HeaderProps)
             </span>
           </div>
           <p className="text-[11px] text-stone-500 truncate max-w-xs md:max-w-md">
-            Kantor Wilayah Kementerian Agama Provinsi Papua
+            Kementerian Haji dan Umrah Kantor Wilayah Provinsi Papua
           </p>
         </div>
       </div>

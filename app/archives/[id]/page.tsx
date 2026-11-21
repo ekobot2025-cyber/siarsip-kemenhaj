@@ -398,7 +398,7 @@ export default function ArchiveDetailPage() {
                     </div>
                     <p className="font-bold text-xs text-amber-300">OTENTIKASI DIGITAL</p>
                     <p className="text-[10px] text-emerald-200/80 leading-tight">
-                      Terverifikasi dalam Repositori Kearsipan Resmi Kanwil Kemenag Provinsi Papua
+                      Terverifikasi dalam Repositori Kearsipan Resmi Kementerian Haji dan Umrah Kantor Wilayah Papua
                     </p>
                   </div>
                 </div>
@@ -438,24 +438,24 @@ export default function ArchiveDetailPage() {
                 <div className="bg-white rounded-xl shadow-md border border-slate-300 p-8 sm:p-12 relative overflow-hidden max-w-4xl mx-auto">
                   {/* Subtle Background Watermark */}
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5 select-none -rotate-45">
-                    <span className="text-5xl sm:text-7xl font-black uppercase text-slate-900 tracking-widest text-center">
-                      KANWIL KEMENAG PAPUA
+                    <span className="text-4xl sm:text-6xl font-black uppercase text-slate-900 tracking-widest text-center">
+                      KEMENTERIAN HAJI DAN UMRAH PAPUA
                     </span>
                   </div>
 
                   {/* Official Header */}
                   <div className="text-center border-b-2 border-slate-900 pb-4 mb-6">
                     <div className="inline-block p-1 bg-emerald-800 text-amber-300 font-bold text-[10px] tracking-widest uppercase px-3 rounded mb-2">
-                      KEMENTERIAN AGAMA REPUBLIK INDONESIA
+                      KEMENTERIAN HAJI DAN UMRAH REPUBLIK INDONESIA
                     </div>
                     <h2 className="text-base sm:text-lg font-bold text-slate-900 uppercase tracking-wide">
-                      KANTOR WILAYAH KEMENTERIAN AGAMA PROVINSI PAPUA
+                      KANTOR WILAYAH PROVINSI PAPUA
                     </h2>
                     <p className="text-xs text-slate-600 mt-0.5">
                       Jalan Raya Abepura - Kotaraja, Jayapura, Papua | Telepon: (0967) 581234
                     </p>
                     <p className="text-[11px] text-slate-500 font-medium">
-                      Email: kanwilpapua@kemenag.go.id | Laman: papua.kemenag.go.id
+                      Email: kanwilpapua@haji.go.id | Laman: papua.haji.go.id
                     </p>
                     <div className="h-0.5 bg-slate-900 mt-3"></div>
                     <div className="h-0.5 bg-slate-900 mt-0.5"></div>
@@ -494,7 +494,7 @@ export default function ArchiveDetailPage() {
                     <div>
                       <span className="font-bold text-slate-800 uppercase tracking-wider text-[11px] block mb-1">Isi Ringkas / Keterangan Arsip:</span>
                       <p className="bg-slate-50 p-3 rounded border border-slate-200 text-slate-700">
-                        {archive.description || 'Berkas telah divalidasi dan disimpan dalam Repositori Kearsipan Digital Kantor Wilayah Kementerian Agama Provinsi Papua.'}
+                        {archive.description || 'Berkas telah divalidasi dan disimpan dalam Repositori Kearsipan Digital Kementerian Haji dan Umrah Kantor Wilayah Provinsi Papua.'}
                       </p>
                     </div>
 
@@ -502,7 +502,7 @@ export default function ArchiveDetailPage() {
                       <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
                       <div className="text-xs text-emerald-950">
                         <span className="font-bold">Otentikasi SI-ARSIP Terkonfirmasi.</span>
-                        <p>Dokumen ini memiliki nilai pembuktian kearsipan sesuai Keputusan Menteri Agama dan kaidah kearsipan nasional ANRI.</p>
+                        <p>Dokumen ini memiliki nilai pembuktian kearsipan sesuai kaidah kearsipan nasional ANRI.</p>
                       </div>
                     </div>
                   </div>
@@ -516,7 +516,7 @@ export default function ArchiveDetailPage() {
                     <div className="text-right">
                       <p className="text-[10px] text-slate-500 mb-1">Pimpinan Unit Pengelola</p>
                       <p className="font-bold text-slate-800">{archive.unit_leader || 'Kepala Bagian'}</p>
-                      <p className="text-[10px] text-slate-500">Kanwil Kemenag Papua</p>
+                      <p className="text-[10px] text-slate-500">Kantor Wilayah Provinsi Papua</p>
                     </div>
                   </div>
                 </div>
@@ -608,7 +608,7 @@ export default function ArchiveDetailPage() {
                       <p>Dapat dibaca oleh semua pengguna terdaftar dan masyarakat sesuai SOP keterbukaan informasi.</p>
                     )}
                     {archive.security_level === 'INTERNAL' && (
-                      <p>Dapat diakses oleh seluruh pegawai dan pejabat di lingkungan Kantor Wilayah Kementerian Agama Provinsi Papua.</p>
+                      <p>Dapat diakses oleh seluruh pegawai dan pejabat di lingkungan Kementerian Haji dan Umrah Kantor Wilayah Provinsi Papua.</p>
                     )}
                     {archive.security_level === 'TERBATAS' && (
                       <p>Hanya dapat diakses oleh personil pada unit <strong>{archive.unit_name}</strong>, Super Admin, dan Pimpinan Kanwil.</p>

@@ -91,13 +91,13 @@ export function DocumentViewerModal({ isOpen, onClose, archive }: DocumentViewer
             {/* Official Header Kop */}
             <div className="border-b-2 border-slate-900 pb-4 mb-6 text-center">
               <p className="text-[10px] font-bold uppercase tracking-widest text-slate-600">
-                KEMENTERIAN AGAMA / KEMENTERIAN HAJI DAN UMRAH RI
+                KEMENTERIAN HAJI DAN UMRAH REPUBLIK INDONESIA
               </p>
               <h1 className="text-base font-black uppercase text-slate-950 tracking-wide mt-0.5">
                 KANTOR WILAYAH PROVINSI PAPUA
               </h1>
               <p className="text-[10px] text-slate-500 mt-0.5">
-                Jl. Raya Abepura - Kotaraja, Jayapura, Papua • Telp/Fax: (0967) 581234 • Email: kanwilpapua@kemenag.go.id
+                Jl. Raya Abepura - Kotaraja, Jayapura, Papua • Telp/Fax: (0967) 581234 • Email: kanwilpapua@haji.go.id
               </p>
               <div className="h-0.5 bg-slate-900 mt-3"></div>
               <div className="h-0.5 bg-slate-900 mt-0.5"></div>
@@ -210,7 +210,7 @@ export function DocumentViewerModal({ isOpen, onClose, archive }: DocumentViewer
                 <span>Integritas Arsip</span>
               </div>
               <p className="text-[11px] text-[#786c5e] leading-relaxed">
-                Setiap akses terhadap dokumen ini tercatat dalam Audit Trail Kementerian Agama / Kemenhaj RI.
+                Setiap akses terhadap dokumen ini tercatat dalam Audit Trail Kementerian Haji dan Umrah RI.
               </p>
             </div>
           </div>

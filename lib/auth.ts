@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 import { getDb } from './db';
 import { User, RoleCode, Archive } from './types';
 
-const TOKEN_SECRET = process.env.AUTH_SECRET || 'siarsip-kemenag-papua-secret-key-2026';
+const TOKEN_SECRET = process.env.AUTH_SECRET || 'siarsip-kemenhaj-papua-secret-key-2026';
 const COOKIE_NAME = 'siarsip_session';
 
 export function hashPassword(password: string): { hash: string; salt: string } {
@@ -70,7 +70,7 @@ export function canAccessArchive(user: User, archive: Archive): boolean {
   // Public archives are accessible by all authenticated users
   if (archive.security_level === 'PUBLIK') return true;
 
-  // Internal: accessible by all internal Kemenag users
+  // Internal: accessible by all internal users
   if (archive.security_level === 'INTERNAL') return true;
 
   // Terbatas: accessible only by users belonging to the same unit, or Super Admin / Pimpinan

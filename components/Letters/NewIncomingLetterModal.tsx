@@ -291,12 +291,11 @@ export function NewIncomingLetterModal({
                 <span className="text-[10px] text-slate-400 font-medium">Klik pilihan cepat atau ketik manual:</span>
                 {[
                   'Pemerintah Provinsi Papua',
-                  'Sekretariat Jenderal Kemenag RI',
-                  'Ditjen Penyelenggaraan Haji (PHU)',
-                  'Ditjen Bimas Islam Kemenag RI',
+                  'Sekretariat Jenderal Kementerian Haji dan Umrah RI',
+                  'Ditjen Penyelenggaraan Haji dan Umrah',
+                  'Inspektorat Jenderal Kementerian Haji dan Umrah RI',
                   'KPPN Jayapura',
-                  'BKN Regional IX Jayapura',
-                  'Inspektorat Jenderal Kemenag RI'
+                  'BKN Regional IX Jayapura'
                 ].map((inst) => (
                   <button
                     key={inst}
