@@ -17,16 +17,19 @@ export async function GET() {
     const todayPrefix = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 
     // Total Archives
-    const totalArchives = (db.prepare('SELECT COUNT(*) as count FROM archives').get() as any).count;
+    const totalArchives = (db.prepare('SELECT COUNT(*) as count FROM archives').get() as any).count ?? 0;
 
     // Archives This Year
-    const archivesThisYear = (db.prepare('SELECT COUNT(*) as count FROM archives WHERE year = ?').get(currentYear) as any).count;
+    const archivesThisYear = (db.prepare('SELECT COUNT(*) as count FROM archives WHERE year = ?').get(currentYear) as any).count ?? 0;
 
     // Total Units
-    const totalUnits = (db.prepare('SELECT COUNT(*) as count FROM units WHERE is_active = 1').get() as any).count;
+    const totalUnits = (db.prepare('SELECT COUNT(*) as count FROM units WHERE is_active = 1').get() as any).count ?? 0;
 
     // Documents This Month
-    const documentsThisMonth = (db.prepare('SELECT COUNT(*) as count FROM archives WHERE document_date LIKE ?').get(`${currentMonthPrefix}%`) as any).count;
+    const documentsThisMonth = (db.prepare('SELECT COUNT(*) as count FROM archives WHERE document_date LIKE ?').get(`${currentMonthPrefix}%`) as any).count ?? 0;
+
+    // Unprocessed Letters
+    const unprocessedLettersCount = (db.prepare("SELECT COUNT(*) as count FROM incoming_letters WHERE status = 'DIPROSES'").get() as any).count ?? 0;
 
     // Surat Masuk & Keluar count from database
     const incomingLetters = (db.prepare('SELECT COUNT(*) as count FROM incoming_letters').get() as any).count ?? 0;
@@ -100,13 +103,13 @@ export async function GET() {
 
     return NextResponse.json({
       totalArchives,
-      archivesThisYear: archivesThisYear || 38,
+      archivesThisYear,
       incomingLetters,
       outgoingLetters,
       totalUnits,
-      documentsThisMonth: documentsThisMonth || 24,
-      newDocsCount: 7,
-      unprocessedLettersCount: 3,
+      documentsThisMonth,
+      newDocsCount: documentsThisMonth,
+      unprocessedLettersCount,
       todayActivitiesCount,
       monthlyStats,
       unitDistribution: unitRows,
