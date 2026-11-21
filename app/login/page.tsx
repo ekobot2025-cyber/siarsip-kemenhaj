@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Shield, Lock, User, ArrowRight, AlertCircle } from 'lucide-react';
+import { Lock, User, ArrowRight, AlertCircle } from 'lucide-react';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -105,13 +105,9 @@ export default function LoginPage() {
           </div>
         </div>
 
-        {/* Bottom Security Assurance */}
-        <div className="relative z-10 pt-4 border-t border-[#c9a961]/20 flex items-center justify-between text-xs text-[#FAF9F5]/60">
-          <div className="flex items-center space-x-2">
-            <Shield className="w-4 h-4 text-[#c9a961]" />
-            <span>Terproteksi Enkripsi PBKDF2 &amp; Audit Trail</span>
-          </div>
-          <span className="font-mono text-[10px]">Tahun Anggaran 2026</span>
+        {/* Bottom Footer Copyright */}
+        <div className="relative z-10 pt-4 border-t border-[#c9a961]/20 text-xs text-[#FAF9F5]/70">
+          <p>&copy; Copyright 2026 Kementerian Haji dan Umrah Kantor Wilayah Provinsi Papua</p>
         </div>
 
       </div>
